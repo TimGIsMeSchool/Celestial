@@ -1,0 +1,10 @@
+if abs(self.dashing_vertical) in {60, 50}:
+            for i in range(20):
+                angle = random.random() * math.pi * 2
+                speed = random.random() * 0.5 + 0.5
+                pvelocity = [math.cos(angle) * speed, math.sin(angle) * speed]
+                self.game.particles.append(Particle(self.game, 'particle', self.rect().center, velocity=pvelocity, frame=random.randint(0, 7)))
+        if self.dashing_vertical > 0:
+            self.dashing_vertical = max(0, self.dashing_vertical - 1)
+        if self.dashing_vertical < 0:
+            self.dashing_vertical = min(0, self.dashing_vertical + 1)
